@@ -1,0 +1,27 @@
+{
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/.DS_Store": true,
+    "**/Thumbs.db": true,
+    "LICENSE": true,
+    "*.json": true,
+    "*.lock": true,
+    "*.yaml": true,
+    "*.config.js": true,
+    "*.config.ts": true,
+    "backend": true,
+    "html_templates": true,
+    "node_modules": true,
+    "public": true,
+    ".agents": true,
+    ".vscode": true,
+    ".react-router": true,
+    ".dockerignore": true,
+    "Dockerfile": true
+  },
+  "files.associations": {
+    "*.css": "tailwindcss"
+  }
+}
