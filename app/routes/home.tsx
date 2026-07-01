@@ -1,4 +1,7 @@
+import Header from "~/components/header";
 import type { Route } from "./+types/home";
+import Container from "~/components/container";
+import Hero from "./home/hero";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -8,5 +11,15 @@ export function meta({}: Route.MetaArgs) {
 }
 
 export default function Home() {
-  return <h1>Hello World</h1>;
+  return (
+    <>
+      <Header
+        primaryLink={{ label: "Post a Job", path: "/register-company" }}
+        secondaryLink={{ label: "Sign In", path: "/login" }}
+      />
+      <Container>
+        <Hero />
+      </Container>
+    </>
+  );
 }

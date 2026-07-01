@@ -6,9 +6,11 @@
 
 Backend API Documentation Link - [Open Documentation](https://documenter.getpostman.com/view/9649334/2sB3dQup5e)
 
-**এসাইনমেন্টে আপনাকে যা যা করতে হবেঃ**
+**এসাইনমেন্টে যা যা করা চলছেঃ**
 
 -[ ] "login.html" "register.html" এবং "register-company.html" ফাইল গুলো React-এ কনভার্ট করতে হবে। ইউজাররা "/login" এবং "/register" রাউটে গিয়ে লগইন এবং রেজিস্টার করতে পারবে। ইউজার কে Authorize করার জন্যে **JWT (JSON Web Token)** ব্যবহার করতে হবে।
+
+**এসাইনমেন্টে আমাকে যা যা করতে হবেঃ**
 
 -[ ] Loggedin User এর ধরনের উপর ভিত্তি করে Navbar এ সংশ্লিষ্ট মেনু দেখাতে হবে, যেন Navbar থেকে Navigation করা যায় । এবং সেই সাথে ইউজার লগআউট করার ফিচার দিতে হবে ।
 
