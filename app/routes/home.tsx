@@ -2,6 +2,7 @@ import Header from "~/components/header";
 import type { Route } from "./+types/home";
 import Container from "~/components/container";
 import Hero from "./home/hero";
+import Footer from "~/components/footer";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -20,6 +21,7 @@ export default function Home() {
       <Container>
         <Hero />
       </Container>
+      <Footer />
     </>
   );
 }

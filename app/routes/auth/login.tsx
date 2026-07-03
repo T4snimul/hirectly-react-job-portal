@@ -6,6 +6,8 @@ import AuthCard from "./components/auth-card";
 import LoginForm from "./forms/login-form";
 import Divider from "./components/divider";
 import FooterLink from "./components/footer-link";
+import SecurityNote from "./components/security-note";
+import Footer from "~/components/footer";
 
 export default function Login() {
   return (
@@ -22,15 +24,17 @@ export default function Login() {
           />
           <AuthCard>
             <LoginForm />
+            <Divider />
+            <FooterLink
+              message="Don't have an account?"
+              linkLabel="Sign Up as a Job Seeker"
+              path="/register"
+            />
           </AuthCard>
-          <Divider />
-          <FooterLink
-            message="Don't have an account?"
-            linkLabel="Sign Up as a Job Seeker"
-            path="/register"
-          />
+          <SecurityNote />
         </Centered>
       </Container>
+      <Footer />
     </>
   );
 }

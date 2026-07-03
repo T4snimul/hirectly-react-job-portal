@@ -5,7 +5,7 @@ export default function Divider() {
         <div className="w-full border-t border-border"></div>
       </div>
       <div className="relative flex justify-center text-sm">
-        <span className="px-4 bg-card text-muted-foreground font-medium">
+        <span className="px-4 bg-white text-muted-foreground font-medium">
           Or continue with
         </span>
       </div>

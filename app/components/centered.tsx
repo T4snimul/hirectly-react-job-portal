@@ -1,5 +1,10 @@
 import { type ReactNode } from "react";
 
-export default function Centered({ children }: { children: ReactNode }) {
-  return <div className="max-w-md mx-auto">{children}</div>;
+type Props = {
+  children: ReactNode;
+  maxWidth?: string;
+};
+
+export default function Centered({ children, maxWidth }: Props) {
+  return <div className={`max-w-${maxWidth || "md"} mx-auto`}>{children}</div>;
 }

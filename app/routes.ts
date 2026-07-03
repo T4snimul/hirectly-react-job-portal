@@ -5,5 +5,6 @@ export default [
   route("/login", "routes/auth/login.tsx"),
   route("/register", "routes/auth/register.tsx", [
     index("routes/auth/register-job-seeker.tsx"),
+    route("company", "routes/auth/register-company.tsx"),
   ]),
 ] satisfies RouteConfig;

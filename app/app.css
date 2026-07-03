@@ -61,6 +61,19 @@
     @apply disabled:cursor-not-allowed disabled:opacity-50;
   }
 
+  .label {
+    @apply text-sm font-medium leading-none;
+    @apply peer-disabled:cursor-not-allowed peer-disabled:opacity-70;
+  }
+
+  .textarea {
+    @apply flex min-h-20 w-full rounded-md border border-[hsl(var(--color-input))];
+    @apply bg-[hsl(var(--color-background))] px-3 py-2 text-sm;
+    @apply placeholder:text-[hsl(var(--color-muted-foreground))];
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[hsl(var(--color-ring))];
+    @apply disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
   .badge {
     @apply inline-flex items-center rounded-full border border-transparent;
     @apply px-2.5 py-0.5 text-xs font-semibold transition-colors;
@@ -102,4 +115,13 @@
 
 .dropdown-content.show {
   display: block;
+}
+
+.role-tab {
+  transition: all 0.2s ease;
+}
+
+.role-tab.active {
+  background: hsl(var(--color-primary));
+  color: hsl(var(--color-primary-foreground));
 }
