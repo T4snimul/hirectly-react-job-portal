@@ -11,7 +11,7 @@
     "*.yaml": true,
     "*.config.js": true,
     "*.config.ts": true,
-    "backend": true,
+    // "backend": true,
     // "html_templates": true,
     "node_modules": true,
     "public": true,

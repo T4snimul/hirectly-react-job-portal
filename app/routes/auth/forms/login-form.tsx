@@ -1,14 +1,29 @@
 import { LockIcon, LogInIcon, MailIcon } from "lucide-react";
+import { useState } from "react";
 import { Form } from "react-router";
 import { useForm } from "react-hook-form";
 import Field from "../components/field";
+import api, { isAxiosError } from "~/api/axios";
 
 type LoginFormValues = {
   email: string;
   password: string;
 };
 
+type LoginResponse = {
+  success: boolean;
+  token: string;
+  data: {
+    id: number;
+    name: string;
+    email: string;
+    role: string;
+  };
+  message?: string;
+};
+
 export default function LoginForm() {
+  const [submitError, setSubmitError] = useState<string | null>(null);
   const {
     register,
     handleSubmit,
@@ -20,12 +35,40 @@ export default function LoginForm() {
     },
   });
 
-  const onSubmit = (values: LoginFormValues) => {
-    console.log("Login submitted", values);
+  const onSubmit = async (values: LoginFormValues) => {
+    setSubmitError(null);
+
+    try {
+      const response = await api.post<LoginResponse>("/auth/login", {
+        ...values,
+        role: "USER",
+      });
+
+      console.log("Login successful", response.data);
+    } catch (error) {
+      if (isAxiosError(error)) {
+        const errorMessage = error.response?.data?.message;
+
+        /* if (errorMessage === "Invalid credentials") {
+          const response = await api.post<LoginResponse>("/auth/login", {
+            ...values,
+            role: "COMPANY",
+          });
+
+          console.log("Logged in as Company", response.data);
+        } */
+
+        setSubmitError(errorMessage ?? "Unable to sign in right now");
+        return;
+      }
+
+      setSubmitError("Unable to sign in right now");
+    }
   };
 
   return (
     <Form className="space-y-5" onSubmit={handleSubmit(onSubmit)} noValidate>
+      {submitError && <p className="text-sm text-red-600">{submitError}</p>}
       <Field
         label="Email Address"
         Icon={MailIcon}
