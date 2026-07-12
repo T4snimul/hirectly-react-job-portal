@@ -1,4 +1,11 @@
-import { Bell, Briefcase, ShieldCheck, UserPlus } from "lucide-react";
+import {
+  Bell,
+  Briefcase,
+  Building2,
+  ShieldCheck,
+  User,
+  UserPlus,
+} from "lucide-react";
 import AdditionalInfo from "./components/additional-info";
 import AuthCard from "./components/auth-card";
 import Divider from "./components/divider";
@@ -18,7 +25,17 @@ export default function RegisterJobSeeker() {
         subtitle="Join thousands of professionals finding their dream jobs"
       />
 
-      <TypeToggle />
+      <TypeToggle
+        types={[
+          { id: 1, link: "/register", label: "Job Seeker", Icon: User },
+          {
+            id: 2,
+            link: "/register/company",
+            label: "Employer",
+            Icon: Building2,
+          },
+        ]}
+      />
 
       <AuthCard>
         <JobSeekerForm />

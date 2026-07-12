@@ -21,7 +21,17 @@ export default function RegisterCompany() {
         subtitle="Start hiring top talent for your organization"
       />
 
-      <TypeToggle />
+      <TypeToggle
+        types={[
+          { id: 1, link: "/register", label: "Job Seeker", Icon: User },
+          {
+            id: 2,
+            link: "/register/company",
+            label: "Employer",
+            Icon: Building2,
+          },
+        ]}
+      />
 
       <AuthCard>
         <CompanyForm />
