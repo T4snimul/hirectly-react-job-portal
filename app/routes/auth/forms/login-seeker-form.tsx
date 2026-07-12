@@ -46,16 +46,20 @@ export default function LoginForm() {
 
       const { token, data: user } = response.data;
       setAuth({ user, token });
-      toast("Login successful!");
+      toast.success("Login successful!", {
+        position: "top-center",
+      });
       navigate("/");
     } catch (error) {
       if (isAxiosError(error)) {
         const errorMessage = error.response?.data?.message;
-        toast(errorMessage ?? "Unable to sign in right now");
+        toast.error(errorMessage ?? "Unable to sign in right now", {
+          position: "top-center",
+        });
         return;
       }
 
-      toast("Unable to sign in right now");
+      toast.error("Unable to sign in right now", { position: "top-center" });
     }
   };
 

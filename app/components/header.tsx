@@ -1,4 +1,7 @@
 import { NavLink } from "react-router";
+import { useAuth } from "~/contexts/auth-context";
+import Avatar from "./avatar";
+import { Building2, User } from "lucide-react";
 
 type LinkProp = {
   path: string;
@@ -16,6 +19,9 @@ export default function Header({
   secondaryLink,
   spanText,
 }: Props) {
+  const { user } = useAuth();
+  console.log(user?.name);
+
   return (
     <div className="sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur supports-backdrop-filter:bg-background/60">
       <div className="container mx-auto flex h-16 items-center justify-between px-4">
@@ -40,6 +46,12 @@ export default function Header({
             </NavLink>
           )}
         </div>
+        {user?.id && (
+          <Avatar
+            label={user?.name}
+            Icon={user.role === "COMPANY" ? Building2 : User}
+          />
+        )}
       </div>
     </div>
   );

@@ -15,7 +15,7 @@ export default function Home() {
   return (
     <>
       <Header
-        primaryLink={{ label: "Post a Job", path: "/register-company" }}
+        primaryLink={{ label: "Post a Job", path: "/register/company" }}
         secondaryLink={{ label: "Sign In", path: "/login" }}
       />
       <Container>
