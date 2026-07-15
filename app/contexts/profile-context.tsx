@@ -5,19 +5,18 @@ import {
   useEffect,
   useState,
 } from "react";
-import { toast } from "react-toastify";
 import type { User } from "~/types";
 
-type AuthContextType = {
+type ProfileContextType = {
   user: User | null;
   token: string | null;
-  setAuth: (data: { user: User; token: string }) => void;
+  setProfile: (data: { user: User; token: string }) => void;
   logout: () => void;
 };
 
-const AuthContext = createContext<AuthContextType | undefined>(undefined);
+const ProfileContext = createContext<ProfileContextType | undefined>(undefined);
 
-export function AuthProvider({ children }: { children: React.ReactNode }) {
+export function ProfileProvider({ children }: { children: React.ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
   const [token, setToken] = useState<string | null>(null);
 
@@ -30,14 +29,11 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         setToken(storedToken);
       }
     } catch (error) {
-      console.error(error);
-      toast.error(`Failed to parse auth data from localStorage`, {
-        position: "top-center",
-      });
+      console.error("Failed to parse auth data from localStorage", error);
     }
   }, []);
 
-  const setAuth = useCallback(
+  const setProfile = useCallback(
     ({ user, token }: { user: User; token: string }) => {
       setUser(user);
       setToken(token);
@@ -55,16 +51,16 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   }, []);
 
   return (
-    <AuthContext.Provider value={{ user, token, setAuth, logout }}>
+    <ProfileContext.Provider value={{ user, token, setProfile, logout }}>
       {children}
-    </AuthContext.Provider>
+    </ProfileContext.Provider>
   );
 }
 
-export const useAuth = () => {
-  const context = useContext(AuthContext);
+export const useProfile = () => {
+  const context = useContext(ProfileContext);
   if (context === undefined) {
-    throw new Error("useAuth must be used within an AuthProvider");
+    throw new Error("useProfile must be used within an ProfileProvider");
   }
   return context;
 };
