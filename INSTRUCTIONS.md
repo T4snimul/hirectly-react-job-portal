@@ -8,13 +8,9 @@ Backend API Documentation Link - [Open Documentation](https://documenter.getpost
 
 **যা যা চলছেঃ**
 
--[ ] "login.html" "register.html" এবং "register-company.html" ফাইল গুলো React-এ কনভার্ট করতে হবে। ইউজাররা "/login" এবং "/register" রাউটে গিয়ে লগইন এবং রেজিস্টার করতে পারবে। ইউজার কে Authorize করার জন্যে **JWT (JSON Web Token)** ব্যবহার করতে হবে।
+-[ ] হোম পেজে পেজিনেশন আকারে জব নিয়ে এসে দেখাতে হবে । ইউজার যেকোনো জব সার্চ, ফিল্টার এবং সর্ট করতে পারবে।
 
 **যা যা করতে হবেঃ**
-
--[ ] Loggedin User এর ধরনের উপর ভিত্তি করে Navbar এ সংশ্লিষ্ট মেনু দেখাতে হবে, যেন Navbar থেকে Navigation করা যায় । এবং সেই সাথে ইউজার লগআউট করার ফিচার দিতে হবে ।
-
--[ ] হোম পেজে পেজিনেশন আকারে জব নিয়ে এসে দেখাতে হবে । ইউজার যেকোনো জব সার্চ, ফিল্টার এবং সর্ট করতে পারবে।
 
 -[ ] হোম বা Job Details পেজ বা অন্যান্য পেজ থেকে কেউ "Apply Now" বাটনে ক্লিক করলে তাকে কনফার্মেশন মোডাল/ডায়ালগ দেখাতে হবে । এবং ইউজার কে একটা Text Area তে Cover Letter লিখে সাবমিট করতে হবে । ইউজার যেই জব এ এপ্লাই করে ফেলেছেন, সেই জব এ "Apply Now" এর পরিবর্তে "Withdraw Application" বাটন দেখাতে হবে । এবং সেই বাটন এর ফিচার ইমপ্লিমেন্ট করতে হবে ।
 
@@ -43,6 +39,10 @@ Backend API Documentation Link - [Open Documentation](https://documenter.getpost
 - manage-jobs.html পেজের মাধ্যমে Company User তার পোষ্ট করা জব গুলো সার্চ, সর্ট, ফিল্টার, এডিট, ডিলেট করতে পারবে ।
 
 **যা যা সম্পন্ন হয়েছেঃ**
+
+-[x] "login.html" "register.html" এবং "register-company.html" ফাইল গুলো React-এ কনভার্ট করতে হবে। ইউজাররা "/login" এবং "/register" রাউটে গিয়ে লগইন এবং রেজিস্টার করতে পারবে। ইউজার কে Authorize করার জন্যে **JWT (JSON Web Token)** ব্যবহার করতে হবে।
+
+-[x] Loggedin User এর ধরনের উপর ভিত্তি করে Navbar এ সংশ্লিষ্ট মেনু দেখাতে হবে, যেন Navbar থেকে Navigation করা যায় । এবং সেই সাথে ইউজার লগআউট করার ফিচার দিতে হবে ।
 
 **সামগ্রিক নির্দেশনা এবং বিধিনিষেধঃ**
 
