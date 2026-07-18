@@ -71,6 +71,12 @@ export default function Header({
                 <NavLink
                   className="text-sm font-medium text-[hsl(var(--color-muted-foreground))] hover:text-[hsl(var(--color-primary))]"
                   to={nav.route}
+                  style={({ isActive }) =>
+                    isActive
+                      ? { color: "hsl(var(--color-primary))" }
+                      : undefined
+                  }
+                  end
                   key={nav.id}
                 >
                   {nav.label}

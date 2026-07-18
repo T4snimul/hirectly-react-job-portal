@@ -9,8 +9,12 @@ import {
 
 import type { Route } from "./+types/root";
 import "./app.css";
-import { AuthProvider } from "./contexts/auth-context";
+import { AuthProvider, useAuth } from "./contexts/auth-context";
 import { ToastContainer } from "react-toastify";
+import Header from "./components/header";
+import Container from "./components/container";
+import Footer from "./components/footer";
+import { Plus } from "lucide-react";
 
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -25,7 +29,15 @@ export const links: Route.LinksFunction = () => [
   },
 ];
 
-export function Layout({ children }: { children: React.ReactNode }) {
+const companyLinks = {
+  primaryLink: { label: "Post Job", path: "post-job", Icon: Plus },
+};
+const guestLinks = {
+  primaryLink: { label: "Sign In", path: "/login" },
+  secondaryLink: { label: "Post a Job", path: "/register/company" },
+};
+
+function PageLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <head>
@@ -35,12 +47,39 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body className="bg-background text-foreground antialiased">
-        <AuthProvider>{children}</AuthProvider>
+        {children}
         <ToastContainer />
         <ScrollRestoration />
         <Scripts />
       </body>
     </html>
+  );
+}
+
+export function Layout({ children }: { children: React.ReactNode }) {
+  return (
+    <PageLayout>
+      <AuthProvider>
+        <InnerApp>{children}</InnerApp>
+      </AuthProvider>
+    </PageLayout>
+  );
+}
+
+function InnerApp({ children }: { children: React.ReactNode }) {
+  const { user } = useAuth();
+  const links =
+    user?.role === "COMPANY"
+      ? companyLinks
+      : user?.role === "USER"
+        ? null
+        : guestLinks;
+  return (
+    <>
+      <Header {...links} />
+      <Container>{children}</Container>
+      <Footer />
+    </>
   );
 }
 
